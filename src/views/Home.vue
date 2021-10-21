@@ -30,7 +30,7 @@ const redirectPage = (link: string) => window.location.href = link
     />
     <kinesis-container class="ml-5">
       <kinesis-element :strength="30">
-        <img class="w-auto h-[50px]" src="Sig.png" alt="logo" @click="redirectPage('https://www.devjj.de')">
+        <img class="w-auto h-[50px]" src="../../public/Sig.png" alt="logo" @click="redirectPage('https://www.devjj.de')">
       </kinesis-element>
     </kinesis-container>
   </div>
