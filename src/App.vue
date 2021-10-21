@@ -4,9 +4,7 @@ import { darkTheme } from "naive-ui";
 
 <template>
   <n-config-provider :theme='darkTheme'>
-    <n-message-provider>
-      <router-view />
-    </n-message-provider>
+    <router-view />
     <n-global-style />
   </n-config-provider>
 </template>
@@ -19,8 +17,4 @@ import { darkTheme } from "naive-ui";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* ::-webkit-scrollbar {
-  width: 0px;
-} */
 </style>
