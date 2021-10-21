@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { mainStore } from "../store/mainStore";
 
+const store = mainStore()
 const subtitle = ref(".")
-const showIcons = ref(false)
+const show = ref(false)
+const projects = ref(store.projects)
 
 const redirectPage = (link: string) => window.location.href = link
 </script>
@@ -24,7 +27,7 @@ const redirectPage = (link: string) => window.location.href = link
         350,
         () => {
           subtitle = 'My Personal Website'
-          showIcons = true
+          show = true
         }
       ]"
     />
@@ -37,29 +40,17 @@ const redirectPage = (link: string) => window.location.href = link
   
   <div class="flex justify-center m-2">
     <transition name="fade">
-      <i-fa:github-square v-show="showIcons" style="width: 50px; height: 50px;" @click="redirectPage('https://www.github.com/Ripwords')"></i-fa:github-square>
+      <i-fa:github-square v-show="show" style="width: 50px; height: 50px;" @click="redirectPage('https://www.github.com/Ripwords')"></i-fa:github-square>
     </transition>
   </div>
 
   <div class="flex justify-center m-10">
     <transition name="fade-late">
-      <n-list v-show="showIcons">
-        <template #header>
-          Projects
-        </template>
-        <n-list-item>
-          <a href="https://www.fluidscalc.netlify.app">
-            <n-thing title="fluidsCalc" description="Fluids Mechanics Calculator"></n-thing>
-          </a>
-        </n-list-item>
-        <n-list-item>
-          <a href="https://www.astroz.netlify.app">
-            <n-thing title="Astroz 🌌" description="Astrophotography related calculators"></n-thing>
-          </a>
-        </n-list-item>
-        <n-list-item>
-          <a href="https://www.github.com/Ripwords/unicorn">
-            <n-thing title="Unicorn 🦄" description="A unit converter"></n-thing>
+      <n-list v-show="show">
+        <template #header>Projects</template>
+        <n-list-item v-for="project in projects" :key="project.title">
+          <a :href="project.link">
+            <n-thing :title="project.title" :description="project.description"></n-thing>
           </a>
         </n-list-item>
       </n-list>
