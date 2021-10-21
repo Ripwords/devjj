@@ -7,12 +7,12 @@ export const mainStore = defineStore("main", {
         {
           title: "fluidsCalc",
           description: "Fluids Mechanics Calculator",
-          link: "https://www.fluidscalc.netlify.app"
+          link: "https://fluidscalc.netlify.app"
         },
         {
           title: "Astroz 🌌",
           description: "Astrophotography related Calculators",
-          link: "https://www.astroz.netlify.app"
+          link: "https://astroz.netlify.app"
         },
         {
           title: "Unicorn 🦄",
