@@ -20,7 +20,7 @@ const beforeEnterList = (el: any) => {
   el.style.opacity = 0
 }
 const beforeEnterGithub = (el: any) => {
-  el.style.transform = 'translateX(-3000px)'
+  el.style.transform = 'translateY(3000px)'
   el.style.opacity = 0
 }
 const afterEnterList = (el: any) => {
@@ -31,8 +31,8 @@ const afterEnterLogo = (el: any) => {
 }
 const enterGithub = (el: any) => {
   gsap.to(el, {
-    duration: 1,
-    x: 0,
+    duration: 0.7,
+    y: 0,
     opacity: 1,
     ease: 'power2.out'
   })
