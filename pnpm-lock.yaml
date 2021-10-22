@@ -5,6 +5,8 @@ specifiers:
   '@vitejs/plugin-vue': ^1.9.3
   '@vueuse/core': ^6.7.3
   autoprefixer: ^10.3.7
+  gsap: ^3.8.0
+  instafeed.js: ^2.0.0
   naive-ui: ^2.19.11
   pinia: 2.0.0-rc.14
   postcss: ^8.3.11
@@ -21,6 +23,8 @@ specifiers:
 
 dependencies:
   '@vueuse/core': 6.7.3_vue@3.2.20
+  gsap: 3.8.0
+  instafeed.js: 2.0.0
   pinia: 2.0.0-rc.14_typescript@4.4.4+vue@3.2.20
   vue: 3.2.20
   vue-kinesis: 2.0.5_vue@3.2.20
@@ -1101,6 +1105,10 @@ packages:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
     dev: true
 
+  /gsap/3.8.0:
+    resolution: {integrity: sha512-cvpzKkWFePDZCycwXwJnDSpTR3j+a4QLQF/t0c+pXqzRESgAYx5hieaoshzZFjbwsARqr0+5c3GKE7wI273w/g==}
+    dev: false
+
   /has-flag/3.0.0:
     resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=}
     engines: {node: '>=4'}
@@ -1204,6 +1212,10 @@ packages:
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: true
+
+  /instafeed.js/2.0.0:
+    resolution: {integrity: sha512-k7khLgozabWoUNoZtU1UV5+hTyYI+hJJi7GosWV0TFp7xaT+buL7eNt6utN7Af+3TeMGHc59DFrcXddtS+X0qw==}
+    dev: false
 
   /is-arrayish/0.2.1:
     resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=}

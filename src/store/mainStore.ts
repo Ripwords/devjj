@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useSessionStorage } from "@vueuse/core";
 
 export const mainStore = defineStore("main", {
   state: () => {
@@ -20,6 +21,7 @@ export const mainStore = defineStore("main", {
           link: "https://www.github.com/Ripwords/unicorn"
         },
       ],
+      animation: useSessionStorage("animation", true)
     }
   }
 })
