@@ -2,7 +2,7 @@
 import VTypical from "vue-typical";
 
 const props = defineProps<{
-  steps: Array<string | number | Function>
+  steps: Array<String | Number | Function>
 }>()
 </script>
 
