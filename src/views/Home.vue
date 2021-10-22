@@ -10,7 +10,7 @@ const showLogo = ref(true)
 const showTitle = ref(false)
 const projects = ref(store.projects)
 
-const redirectPage = (link: string) => window.location.href = link
+const redirectPage = (link: string) => window.open(link) 
 const beforeEnterLogo = (el: any) => {
   el.style.transform = 'translateY(-100px)'
   el.style.opacity = 0
