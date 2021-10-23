@@ -11,8 +11,9 @@ const nH1Animation = animationInit(
     options: {
       beforeEnter: true,
       enter: true,
-      duration: 1.5,
-      ease: "power1.out"
+      duration: 2,
+      ease: "power1.out",
+      done: true
     }
   }
 )

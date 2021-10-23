@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-// @ts-expect-error
 import Instafeed from "instafeed.js";
 import { onMounted } from "vue";
 

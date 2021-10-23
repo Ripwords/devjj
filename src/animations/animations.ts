@@ -20,6 +20,7 @@ type options = {
   enter: boolean,
   duration: number,
   ease: string
+  done: boolean
 }
 
 export interface config {
@@ -50,12 +51,13 @@ export const animationInit = (
       beforeEnter: false,
       enter: false,
       duration: 0,
-      ease: "power1.out"
+      ease: "power1.out",
+      done: true
     }
   }: config
 ) => {
   let beforeEnter: ((el: Element) => void) = () => { }
-  let enter: ((el: Element, done: gsap.Callback) => void) = () => { }
+  let enter: ((el: Element, done: gsap.Callback) => void) | ((el: Element) => void) = () => { }
 
   if (options.beforeEnter) {
     beforeEnter = (el: any) => {
@@ -71,7 +73,7 @@ export const animationInit = (
     }
   }
 
-  if (options.enter) {
+  if (options.enter && options.done) {
     enter = (el: Element, done: gsap.Callback) => {
       gsap.to(el, {
         duration: options.duration,
@@ -80,6 +82,18 @@ export const animationInit = (
         opacity: opacity.toOpacity,
         ease: options.ease,
         onComplete: done
+      })
+    }
+  }
+
+  if (options.enter && !options.done) {
+    enter = (el: Element) => {
+      gsap.to(el, {
+        duration: options.duration,
+        x: x.to,
+        y: y.to,
+        opacity: opacity.toOpacity,
+        ease: options.ease,
       })
     }
   }
