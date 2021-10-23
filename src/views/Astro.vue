@@ -32,7 +32,7 @@ const nH1Animation = animationInit(
           <typingHeader 
             :steps="[
               'A',
-              900,
+              800,
               'As',
               500,
               'Astr',
@@ -45,7 +45,7 @@ const nH1Animation = animationInit(
         </n-h1>
       </transition>
     </div>
-    <div class="mx-10">
+    <div class="mx-10 mb-10">
       <n-card>
         <InstaFeed />
       </n-card>
