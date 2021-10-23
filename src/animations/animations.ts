@@ -1,5 +1,6 @@
 import gsap from "gsap";
 
+// Types for custom gsap animation config functions
 type x = {
   init: boolean,
   px: number,
@@ -23,6 +24,7 @@ type options = {
   done: boolean
 }
 
+// Config interface for custom gsap animation functions
 export interface config {
   x?: x,
   y?: y,
@@ -30,6 +32,7 @@ export interface config {
   options: options
 }
 
+// Custom gsap animation functions
 export const animationInit = (
   {
     x = {
