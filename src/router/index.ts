@@ -12,6 +12,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/astro",
     component: () => import('../views/Astro.vue')
+  },
+  {
+    path: "/projects",
+    component: () => import('../views/Projects.vue'),
+  },
+  {
+    path: "/projects/:id",
+    component: () => import('../views/Projects/project.vue'),
   }
 ]
 

@@ -8,7 +8,6 @@ import { animationInit } from "../animations/animations"
 const store = mainStore()
 const showTitle = ref(false)
 const showList = ref(false)
-const showGithubButton = ref(false)
 
 // Functions
 const redirectPage = (link: string) => window.open(link)
@@ -58,28 +57,6 @@ const listAnimation = animationInit(
   }
 )
 
-const githubButtonAnimation = animationInit(
-  {
-    y: {
-      init: true,
-      px: 3000,
-      to: 0
-    },
-    opacity: {
-      init: true,
-      opacity: 0,
-      toOpacity: 1
-    },
-    options: {
-      beforeEnter: true,
-      enter: true,
-      duration: 0.7,
-      ease: "power2.out",
-      done: false
-    }
-  }
-)
-
 onUnmounted(() => {
   store.animation = false
 })
@@ -120,32 +97,6 @@ onUnmounted(() => {
         </kinesis-element>
       </kinesis-container>
     </div>
-
-    <div class="flex justify-center m-6">
-      <transition
-        @before-enter="listAnimation.beforeEnter"
-        @enter="listAnimation.enter"
-        @after-enter="showGithubButton = true"
-      >
-        <n-list v-show="showList">
-          <template #header>Projects</template>
-          <n-list-item v-for="project in store.projects" :key="project.title">
-            <a :href="project.link">
-              <n-thing :title="project.title" :description="project.description"></n-thing>
-            </a>
-          </n-list-item>
-        </n-list>
-      </transition>
-    </div>
-
-    <div class="m-3 top-0 absolute right-[-0]">
-      <transition
-        @before-enter="githubButtonAnimation.beforeEnter"
-        @enter="githubButtonAnimation.enter"
-      >
-        <i-fa:github-square v-show="showGithubButton" style="width: 50px; height: 50px;" @click="redirectPage('https://www.github.com/Ripwords')"></i-fa:github-square>
-      </transition>
-    </div>
   </div>
   
   <div v-else>
@@ -156,21 +107,6 @@ onUnmounted(() => {
           <img class="w-auto h-[50px]" src="/Sig.png" alt="logo" @click="redirectPage('https://www.devjj.de')"> 
         </kinesis-element>
       </kinesis-container>
-    </div>
-
-    <div class="flex justify-center m-6">
-      <n-list>
-        <template #header>Projects</template>
-        <n-list-item v-for="project in store.projects" :key="project.title">
-          <a :href="project.link">
-            <n-thing :title="project.title" :description="project.description"></n-thing>
-          </a>
-        </n-list-item>
-      </n-list>
-    </div>
-
-    <div class="m-3 top-0 absolute right-[-0]">
-      <i-fa:github-square style="width: 50px; height: 50px;" @click="redirectPage('https://www.github.com/Ripwords')"></i-fa:github-square>
     </div>
   </div>
 </template>

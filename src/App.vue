@@ -1,15 +1,51 @@
 <script lang="ts" setup>
 import { darkTheme } from "naive-ui";
+import { animationInit } from "./animations/animations";
+
+const ease = "sine."
+const duration = 0.5
+const pageInAnimation = animationInit({
+  opacity: {
+    init: true,
+    opacity: 0,
+    toOpacity: 1 
+  },
+  options: {
+    beforeEnter: true,
+    enter: true,
+    duration: duration,
+    done: false,
+    ease: ease + 'in'
+  }
+})
+
+const pageOutAnimation = animationInit({
+  opacity: {
+    init: true,
+    opacity: 1,
+    toOpacity: 0 
+  },
+  options: {
+    beforeEnter: true,
+    enter: true,
+    duration: duration,
+    done: false,
+    ease: ease + 'out'
+  }
+})
 </script>
 
 <template>
   <n-config-provider :theme='darkTheme'>
     <Navbar />
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <keep-alive>
-          <component :is="Component" />
-        </keep-alive>
+      <transition
+        @before-enter="pageInAnimation.beforeEnter"
+        @enter="pageInAnimation.enter"
+        @before-leave="pageOutAnimation.beforeEnter"
+        @leave="pageOutAnimation.enter"
+      >
+        <component :is="Component" />
       </transition>
     </router-view>
     <n-global-style />
@@ -27,15 +63,5 @@ import { darkTheme } from "naive-ui";
 
 ::-webkit-scrollbar {
   width: 0px;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-out;
 }
 </style>
