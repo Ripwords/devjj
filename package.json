@@ -9,7 +9,6 @@
   "dependencies": {
     "@vueuse/core": "^6.7.3",
     "gsap": "^3.8.0",
-    "instafeed.js": "^2.0.0",
     "pinia": "2.0.0-rc.14",
     "vue": "^3.2.16",
     "vue-kinesis": "^2.0.5",

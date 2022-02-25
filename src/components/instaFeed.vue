@@ -1,30 +1,19 @@
 <script lang="ts" setup>
-import Instafeed from "instafeed.js";
-import { onMounted } from "vue";
-
-const feed = new Instafeed({
-  accessToken: "IGQVJVZAHM4bmZAueC1aRGZAoS0lOLUtaSUprRzF4eFhhRXNId2VWbmhuMm5vQ2pQTFcycURTYkNlY3JVbndhdzlkOHNfaVQyZAHZAzajZAJX1gtUkdtUzRKdnM5ZAjM3T3JQd2VRRXU4UmVWMmMtZA2JzMlluQwZDZD",
-  template: '<a class="flex justify-center" href="{{link}}" target="_blank"><img class=" object-cover" title="{{caption}}" src="{{image}}" /></a>',
-  limit: 1000,
-})
+// @ts-nocheck
+import { onMounted } from 'vue'
 
 onMounted(() => {
-  feed.run()
+  const scriptTag = document.createElement('script')
+  scriptTag.src = "//instafeed.assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"
+  document.getElementsByTagName('head')[0].appendChild(scriptTag)
+
+  window.PixleeAsyncInit = function() {
+    Pixlee.init({apiKey:'R0geol5jCaXNw6X2A4e7'})
+    Pixlee.addSimpleWidget({widgetId:'35979'})
+  }
 })
 </script>
 
 <template>
-  <div 
-    class="
-      grid 
-      sm:grid-cols-2
-      md:grid-cols-3
-      lg:grid-cols-4
-      xl:grid-cols-5 
-      2xl:grid-cols-6
-      gap-4 
-      m-5  
-    " 
-    id="instafeed"
-  />
+  <div id="pixlee_container"></div>
 </template>

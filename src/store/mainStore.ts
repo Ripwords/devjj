@@ -20,6 +20,16 @@ export const mainStore = defineStore("main", {
           description: "Desktop Unit Converter",
           link: "https://www.github.com/Ripwords/unicorn"
         },
+        {
+          title: "Window Reader 📚",
+          description: "Simple transparent note taking app",
+          link: "https://www.github.com/Ripwords/window-reader"
+        },
+        {
+          title: "StarnetGUI",
+          description: "GUI for Starnet++",
+          link: "https://www.github.com/Ripwords/starnetGUI"
+        }
       ],
       animation: useSessionStorage("animation", true)
     }
