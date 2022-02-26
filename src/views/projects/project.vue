@@ -11,7 +11,6 @@ const project = ref(store.projects[store.projects.findIndex((page) => {
 })])
 
 if (project.value.link.includes("github")) {
-  console.log(project.value.link)
   window.open(project.value.link)
   router.push('/projects')
 }
